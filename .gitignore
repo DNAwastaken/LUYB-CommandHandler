@@ -1,0 +1,6 @@
+# Auto-generated Mac files
+*.DS_Store
+
+# Project files
+node_modules
+dist
