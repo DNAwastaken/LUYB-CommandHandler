@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/DNAwastaken/LUYB-CommandHandler#readme",
   "dependencies": {
-    "discord.js": "^14.7.1"
+    "discord.js": "^14.7.1",
+    "mongoose": "^6.9.1"
   },
   "devDependencies": {
     "@types/node": "^18.13.0"
