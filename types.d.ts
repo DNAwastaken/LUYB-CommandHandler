@@ -18,11 +18,18 @@ export interface MainOptions {
   mongoUri?: string; // MongoDB connection URI
 }
 
+// Command object types
 export interface CommandObject {
-  callback: (commandUsage: commandUsage) => unknown;
+  callback: (commandUsage: CommandUsage) => unknown;
 }
 
-export interface commandUsage {
+// Command callback argument (usage) types
+export interface CommandUsage {
   client: Client;
+
+  /* Message, args, and text only exist if the command is used in a message
+     They're null if the command is used in a slash command */
   message?: Message | null;
+  args?: string[] | null;
+  text?: string | null;
 }

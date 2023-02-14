@@ -50,7 +50,7 @@ class CommandHandler {
       // Destructuring values from commandObject
       const { callback } = commandObject;
 
-      callback({ message });
+      callback({ message, args, text: args.join(' ') });
     });
   }
 }
