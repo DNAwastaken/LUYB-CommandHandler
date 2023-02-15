@@ -8,11 +8,11 @@ import {
   User,
 } from 'discord.js';
 
-export default class Main {
-  constructor({ client, commandsDir }: MainOptions);
+export default class DNA {
+  constructor({ client, commandsDir }: Options);
 }
 
-export interface MainOptions {
+export interface Options {
   client: Client; // Discord.js bot client
   commandsDir: string; // Path to commands directory
   mongoUri?: string; // MongoDB connection URI
@@ -20,16 +20,16 @@ export interface MainOptions {
 
 // Command object types
 export interface CommandObject {
+  minArgs?: number;
+  maxArgs?: number;
+  correctSyntax?: string;
   callback: (commandUsage: CommandUsage) => unknown;
 }
 
 // Command callback argument (usage) types
 export interface CommandUsage {
   client: Client;
-
-  /* Message, args, and text only exist if the command is used in a message
-     They're null if the command is used in a slash command */
   message?: Message | null;
-  args?: string[] | null;
-  text?: string | null;
+  args: string[];
+  text: string;
 }

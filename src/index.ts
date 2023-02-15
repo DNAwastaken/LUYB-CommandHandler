@@ -1,12 +1,12 @@
 // Packages
 import mongoose from 'mongoose';
-import { MainOptions } from '../types';
 
 // Files
-import CommandHandler from './CommandHandler';
+import CommandHandler from './command-handler/CommandHandler';
+import { CommandObject, Options } from '../types';
 
 class Main {
-  constructor({ client, mongoUri, commandsDir }: MainOptions) {
+  constructor({ client, commandsDir, mongoUri }: Options) {
     if (!client) {
       throw new Error('A client is required.');
     }
@@ -28,3 +28,6 @@ class Main {
 }
 
 export default Main;
+
+// Exporting the types from the main file so projects `npm link` can properly import/export them
+export { CommandObject, Options };
